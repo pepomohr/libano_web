@@ -1,51 +1,53 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 :root {
   /* Fondo Blanco Líbano */
   --background: oklch(1 0 0);
-  --foreground: oklch(0.12 0 0); /* Negro suave para lectura */
-  
-  /* Cards y Popovers en blanco puro para minimalismo */
+  --foreground: oklch(0.12 0 0);
+
+  /* Cards y Popovers */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.12 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.12 0 0);
-  
-  /* NARANJA LÍBANO - El color de la marca */
-  --primary: oklch(0.65 0.2 45); 
+
+  /* === EL NUEVO DORADO LÍBANO (#CAAB6D) === */
+  /* Lo convertimos a OKLCH para mantener la coherencia del archivo */
+  --primary: oklch(0.74 0.08 85.5);
   --primary-foreground: oklch(1 0 0);
-  
-  /* Gris muy claro para elementos secundarios */
+
+  /* Gris muy claro */
   --secondary: oklch(0.96 0 0);
   --secondary-foreground: oklch(0.12 0 0);
-  
+
   --muted: oklch(0.96 0 0);
   --muted-foreground: oklch(0.45 0 0);
-  
+
   --accent: oklch(0.96 0 0);
   --accent-foreground: oklch(0.12 0 0);
-  
+
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(1 0 0);
-  
-  /* Bordes finos y elegantes */
+
+  /* Bordes y Anillos */
   --border: oklch(0.9 0 0);
   --input: oklch(0.9 0 0);
-  --ring: oklch(0.65 0.2 45); /* Ring naranja */
-  
-  --radius: 0.5rem; /* Bordes un poco más rectos, más pro */
-  
+  --ring: oklch(0.74 0.08 85.5);
+  /* Usamos el mismo dorado */
+
+  --radius: 0.5rem;
+
   --sidebar: oklch(0.98 0 0);
   --sidebar-foreground: oklch(0.12 0 0);
-  --sidebar-primary: oklch(0.65 0.2 45);
+  --sidebar-primary: oklch(0.74 0.08 85.5);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.94 0 0);
-  --sidebar-accent-foreground: oklch(0.65 0.2 45);
+  --sidebar-accent-foreground: oklch(0.74 0.08 85.5);
   --sidebar-border: oklch(0.9 0 0);
-  --sidebar-ring: oklch(0.65 0.2 45);
+  --sidebar-ring: oklch(0.74 0.08 85.5);
 }
 
 .dark {
@@ -56,22 +58,23 @@
   --card-foreground: oklch(0.98 0 0);
   --popover: oklch(0.16 0 0);
   --popover-foreground: oklch(0.98 0 0);
-  
-  --primary: oklch(0.65 0.2 45); /* Mantenemos el naranja */
+
+  /* Dorado en modo oscuro también luce de locos */
+  --primary: oklch(0.74 0.08 85.5);
   --primary-foreground: oklch(1 0 0);
-  
+
   --secondary: oklch(0.25 0 0);
   --secondary-foreground: oklch(0.98 0 0);
-  
+
   --muted: oklch(0.25 0 0);
   --muted-foreground: oklch(0.65 0 0);
-  
+
   --accent: oklch(0.25 0 0);
   --accent-foreground: oklch(0.98 0 0);
-  
+
   --border: oklch(0.25 0 0);
   --input: oklch(0.25 0 0);
-  --ring: oklch(0.65 0.2 45);
+  --ring: oklch(0.74 0.08 85.5);
 }
 
 @theme inline {
@@ -114,6 +117,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground transition-colors duration-300;
   }

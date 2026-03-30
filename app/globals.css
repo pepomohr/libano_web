@@ -4,56 +4,62 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================
-   WHITE-LABEL THEME VARIABLES
-   Cambia estos valores para personalizar
-   la identidad visual de cada cliente.
+    WHITE-LABEL THEME VARIABLES - LÍBANO
    ============================================ */
 :root {
-  /* Brand Colors - Barbería Premium Dark Theme */
-  --brand-primary: #C9A84C;       /* Gold accent */
-  --brand-primary-dark: #A8873A;  /* Gold darker */
-  --brand-secondary: #1A1A1A;     /* Deep charcoal */
-  --brand-surface: #242424;       /* Card surface */
-  --brand-surface-2: #2E2E2E;     /* Elevated surface */
-  --brand-text: #F5F0E8;          /* Warm off-white */
-  --brand-text-muted: #9A9080;    /* Muted warm gray */
-  --brand-success: #4CAF7D;       /* Success green */
-  --brand-danger: #E05252;        /* Danger red */
+  /* Brand Colors - Dorado Líbano Oficial #CAAB6D */
+  --brand-primary: #CAAB6D;
+  --brand-primary-dark: #B5965A;
+  --brand-secondary: #FFFFFF;
+  --brand-surface: #FFFFFF;
+  --brand-surface-2: #F9F9F9;
+  --brand-text: #1A1A1A;
+  --brand-text-muted: #666666;
+  --brand-success: #4CAF7D;
+  --brand-danger: #E05252;
 
-  /* Semantic tokens */
-  --background: oklch(0.12 0 0);
-  --foreground: oklch(0.96 0.01 80);
-  --card: oklch(0.16 0 0);
-  --card-foreground: oklch(0.96 0.01 80);
-  --popover: oklch(0.16 0 0);
-  --popover-foreground: oklch(0.96 0.01 80);
-  --primary: oklch(0.76 0.12 75);
-  --primary-foreground: oklch(0.12 0 0);
-  --secondary: oklch(0.20 0 0);
-  --secondary-foreground: oklch(0.96 0.01 80);
-  --muted: oklch(0.20 0 0);
-  --muted-foreground: oklch(0.60 0.02 75);
-  --accent: oklch(0.76 0.12 75);
-  --accent-foreground: oklch(0.12 0 0);
+  /* Semantic tokens - PASADOS A MODO CLARO */
+  --background: oklch(1 0 0);
+  /* Blanco Puro */
+  --foreground: oklch(0.15 0 0);
+  /* Negro suave */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+
+  /* Dorado Líbano en OKLCH */
+  --primary: oklch(0.74 0.08 85.5);
+  --primary-foreground: oklch(1 0 0);
+
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.15 0 0);
+
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+
+  --accent: oklch(0.74 0.08 85.5);
+  --accent-foreground: oklch(1 0 0);
+
   --destructive: oklch(0.55 0.20 25);
   --destructive-foreground: oklch(0.96 0 0);
-  --border: oklch(0.25 0 0);
-  --input: oklch(0.20 0 0);
-  --ring: oklch(0.76 0.12 75);
-  --chart-1: oklch(0.76 0.12 75);
-  --chart-2: oklch(0.60 0.118 184.704);
-  --chart-3: oklch(0.55 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --radius: 0.5rem;
-  --sidebar: oklch(0.14 0 0);
-  --sidebar-foreground: oklch(0.96 0.01 80);
-  --sidebar-primary: oklch(0.76 0.12 75);
-  --sidebar-primary-foreground: oklch(0.12 0 0);
-  --sidebar-accent: oklch(0.20 0 0);
-  --sidebar-accent-foreground: oklch(0.96 0.01 80);
-  --sidebar-border: oklch(0.25 0 0);
-  --sidebar-ring: oklch(0.76 0.12 75);
+
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0.74 0.08 85.5);
+
+  --radius: 0.75rem;
+  /* Bordes un toque más redondeados para que sea más moderno */
+
+  /* Sidebar (Admin) */
+  --sidebar: oklch(0.99 0 0);
+  --sidebar-foreground: oklch(0.15 0 0);
+  --sidebar-primary: oklch(0.74 0.08 85.5);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0.92 0 0);
+  --sidebar-ring: oklch(0.74 0.08 85.5);
 }
 
 @theme inline {
@@ -79,11 +85,6 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -102,7 +103,8 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
   }
 }

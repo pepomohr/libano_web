@@ -1,8 +1,8 @@
 "use client"
 
-import { Scissors, ShoppingBag, Menu, X } from "lucide-react"
+import Image from "next/image"
+import { ShoppingBag, Menu, X } from "lucide-react"
 import { useState } from "react"
-import { SHOP_CONFIG } from "@/lib/barbershop-data"
 import { cn } from "@/lib/utils"
 
 type Section = "inicio" | "turnos" | "productos"
@@ -23,23 +23,22 @@ export default function ClientHeader({ activeSection, onNavigate, cartCount }: P
   const [mobileOpen, setMobileOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/40 backdrop-blur-md bg-background/90">
+    <header className="sticky top-0 z-50 border-b border-gray-200 backdrop-blur-md bg-white/90">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
-        {/* Logo */}
+
+        {/* LOGO GIGANTE SIN EMPUJAR LA BARRA */}
         <button
           onClick={() => onNavigate("inicio")}
-          className="flex items-center gap-2 group"
+          className="relative flex items-center group h-16 w-40 sm:w-56"
           aria-label="Ir al inicio"
         >
-          <div className="w-9 h-9 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-            <Scissors className="w-4 h-4 text-primary-foreground" />
-          </div>
-          <div className="hidden sm:block">
-            <span className="font-serif text-base font-bold text-foreground leading-none block">
-              {SHOP_CONFIG.name}
-            </span>
-            <span className="text-xs text-muted-foreground leading-none">{SHOP_CONFIG.tagline}</span>
-          </div>
+          <Image
+            src="/images/logo-libano-solo.png"
+            alt="Líbano Barbería"
+            fill
+            className="object-contain object-left scale-[1.6] sm:scale-[2.0] origin-left group-hover:scale-[1.65] sm:group-hover:scale-[2.05] transition-transform duration-300"
+            priority
+          />
         </button>
 
         {/* Desktop nav */}
@@ -51,8 +50,8 @@ export default function ClientHeader({ activeSection, onNavigate, cartCount }: P
               className={cn(
                 "px-4 py-2 rounded-md text-sm font-medium transition-all",
                 activeSection === item.id
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "bg-primary text-white"
+                  : "text-gray-600 hover:text-black hover:bg-gray-100"
               )}
             >
               {item.label}
@@ -64,19 +63,19 @@ export default function ClientHeader({ activeSection, onNavigate, cartCount }: P
         <div className="flex items-center gap-2">
           <button
             onClick={() => onNavigate("productos")}
-            className="relative p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-all"
+            className="relative p-2 rounded-md text-gray-600 hover:text-black hover:bg-gray-100 transition-all"
             aria-label={`Carrito, ${cartCount} items`}
           >
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center">
+              <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
             )}
           </button>
 
           <button
-            className="md:hidden p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted"
+            className="md:hidden p-2 rounded-md text-gray-600 hover:text-black hover:bg-gray-100"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Menú móvil"
           >
@@ -87,7 +86,7 @@ export default function ClientHeader({ activeSection, onNavigate, cartCount }: P
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <nav className="md:hidden border-t border-border/40 bg-card px-4 py-3 flex flex-col gap-1">
+        <nav className="md:hidden border-t border-gray-200 bg-white px-4 py-3 flex flex-col gap-1 shadow-md">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -95,8 +94,8 @@ export default function ClientHeader({ activeSection, onNavigate, cartCount }: P
               className={cn(
                 "text-left px-4 py-2.5 rounded-md text-sm font-medium transition-all",
                 activeSection === item.id
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                  ? "bg-primary text-white"
+                  : "text-gray-600 hover:text-black hover:bg-gray-100"
               )}
             >
               {item.label}

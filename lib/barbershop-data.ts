@@ -25,14 +25,14 @@ export interface Service {
   name: string
   basePrice: number
   description: string
-  duration: number 
+  duration: number
 }
 
 export const SERVICES: Service[] = [
-  { id: "corte",  name: "Corte",  basePrice: 15000, description: "Corte profesional Líbano Style", duration: 30 },
-  { id: "barba",  name: "Barba",  basePrice: 9000,  description: "Perfilado y arreglo de barba", duration: 30 },
-  { id: "reflejos",  name: "Reflejos (Incluye Corte)",  basePrice: 40000,  description: "Iluminación + Corte incluido", duration: 90 },
-  { id: "color_completo",  name: "Color Completo (Incluye Corte)",  basePrice: 50000, description: "Cambio de color total + Corte incluido", duration: 120 },
+  { id: "corte", name: "Corte", basePrice: 15000, description: "Corte profesional Líbano Style", duration: 30 },
+  { id: "barba", name: "Barba", basePrice: 9000, description: "Perfilado y arreglo de barba", duration: 30 },
+  { id: "reflejos", name: "Reflejos (Incluye Corte)", basePrice: 40000, description: "Iluminación + Corte incluido", duration: 90 },
+  { id: "color_completo", name: "Color Completo (Incluye Corte)", basePrice: 50000, description: "Cambio de color total + Corte incluido", duration: 120 },
 ]
 
 export interface PricingResult {
@@ -83,7 +83,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     description: "Fijación fuerte, efecto mate.",
     price: 8500,
     stock: 20,
-    image: "/logo-libano.png", // Usamos el logo temporalmente
+    image: "/images/product-polvo.jpg", // Usamos el logo temporalmente
   }
 ]
 
